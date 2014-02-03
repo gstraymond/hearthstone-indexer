@@ -1,0 +1,26 @@
+apply plugin: 'groovy'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.codehaus.groovy:groovy-all:2.2.1'
+	compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.6'
+	compile 'org.codehaus.gpars:gpars:1.1.0'
+	/*
+	compile 'org.jsoup:jsoup:1.7.3'
+	*/
+}
+
+task scrap (dependsOn: 'classes', type: JavaExec) {
+	description = 'HEARTHSTONE SCRAPER'
+	main = 'fr.gstraymond.script.Scrap'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task importer (dependsOn: 'classes', type: JavaExec) {
+	description = 'HEARTHSTONE IMPORTER'
+	main = 'fr.gstraymond.script.Importer'
+	classpath = sourceSets.main.runtimeClasspath
+}

@@ -1,0 +1,64 @@
+.facet-view-simple, .disclaimer{
+    width: 800px;
+    margin: 20px auto 0 auto;
+}
+
+.facet-view-simple h1 {
+	margin-left: 203px;
+}
+
+.facetview_learnmore,
+.facetview_order,
+.facetview_howmany {
+	display: none;
+}
+
+pre {
+	margin-top: 10px;
+	margin-left: 115px;
+	font-size: 13px;
+	word-break: normal;
+}
+
+.fancybox-opened .fancybox-skin,
+.fancybox-skin {
+	background: transparent;
+	box-shadow: none;
+}
+
+
+.fancybox-close {
+    right: 8px;
+    top: 53px;
+}
+
+strong.title {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.disclaimer {
+	clear: both;
+	color: gray;
+}
+
+.disclaimer p {
+	font-size: 10px;
+}
+
+.thumbnail {
+	cursor: pointer;
+	border: 0;
+	box-shadow: none;
+}
+
+#facetview_results td {
+	padding: 0;
+}
+
+.pic {
+	width: 195px;
+	height: 295px;
+	max-width: inherit;
+	margin: -30px -8px -10px -8px;
+}

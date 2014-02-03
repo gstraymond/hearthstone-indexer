@@ -1,0 +1,16 @@
+# Démarrage nginx local
+sudo nginx -c /home/guillaume/git/magicimporter/misc/local.nginx.conf
+
+# Livraison du dump ES
+ - ouvrir le port 22 sur ec2
+ - ssh -i /home/guillaume/Documents/magic/aws/gstraymond.pem ubuntu@ec2-50-112-229-218.us-west-2.compute.amazonaws.com
+ - faire un dump en local
+  - rm /home/guillaume/hearthstone.tar.gz
+  - curl -XPOST localhost:9200/hearthstone/_export
+ - le copier dans filetea.me
+ - aria2c https://filetea.me/....
+ - le mettre au bon endroit : ~/hearthstone.tar.gz
+ - Supprimer l'index sur le serveur  et importer le dump
+  - curl -XDELETE localhost:9200/hearthstone && curl -XPOST http://localhost:9200/hearthstone/_import
+ - fermer la session
+ - fermer le port 22

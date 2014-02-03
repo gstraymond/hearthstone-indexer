@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hearthstone card search</title>
+  
+  <meta name="description" content="Fast and powerful search for your Hearthstone cards. Helps you to build betters decks !" />
+  
+  <script type="text/javascript">
+	  var language = navigator.language;
+	  if (navigator.browserLanguage) {
+		  language = navigator.browserLanguage;
+	  }
+
+	  if (language.indexOf('fr') != -1) {
+		  document.location.href = 'fr.html';
+	  }
+  </script>
+
+  <!-- jquery -->
+  <script type="text/javascript" src="vendor/jquery/1.7.1/jquery-1.7.1.min.js"></script>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>  
+
+  <!-- linkify -->
+  <script type="text/javascript" src="vendor/linkify/1.0/jquery.linkify-1.0-min.js"></script>  
+  
+  <!-- jquery ui -->
+  <link rel="stylesheet" href="vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.css">
+  <script type="text/javascript" src="vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.min.js"></script>
+
+  <!-- facetview -->
+  <script type="text/javascript" src="jquery.facetview.js"></script>
+  <link rel="stylesheet" href="css/facetview.css">
+
+  <!-- fancybox -->
+  <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
+  <!-- custom -->
+  <script type="text/javascript">
+    //var searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone/card_en/_search?';
+    var searchUrl = 'http://localhost:9200/hearthstone/card_en/_search?';
+  </script>
+  <script type="text/javascript" src="custom.js"></script>
+  <link rel="stylesheet" href="custom.css" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="facet-view-simple">
+		<h1>Hearthstone search engine</h1>
+    </div>
+</body>
+</html>
