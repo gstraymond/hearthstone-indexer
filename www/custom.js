@@ -16,30 +16,89 @@ jQuery(document).ready(function($) {
 	        {'field': 'type',			'display': 'Type'},
 	        {'field': 'capabilities',	'display': 'Capabilities'},
 	    ],
-	    paging: { size: 12 },
+	    paging: { size: 10 },
 	    default_operator: "AND",
-	    pager_on_top: true,
 	    sort: ['_uid'],
-	    display_images: false,
-        searchwrap_start: '<div id="facetview_results">',
-        searchwrap_end: '</div>',
-        resultwrap_start: '',
-        resultwrap_end: '',
 	    result_display: [
 			[
 		 	    {
-		 	        "pre": "<a class='piclink' href='",
+		 	        "pre": "<span class='mana'>",
+	 	        	"field": "castingCost",
+		 	        "post": "</span>&nbsp;"
+	 	    	},
+		 	    {
+		 	        "pre": "<strong class='title'>",
+		 	        "field": "title",
+			 	    "post": "</strong>"
+		 	    },
+	 	    ],
+	 	    [
+		 	    {
+		 	        "pre": "<span class='label label-info'>",
+		        	"field": "clazz",
+		 	        "post": "</span>&nbsp;"
+		    	},
+		 	    {
+		 	        "pre": "<span class='label label-warning'>",
+	 	        	"field": "set",
+		 	        "post": "</span>&nbsp;"
+	 	    	},
+		 	    {
+		 	        "pre": "<span class='",
+	 	        	"field": "rarity",
+	 	    	},
+		 	    {
+		 	        "pre": " rarity'>",
+	 	        	"field": "rarity",
+		 	        "post": "</span>&nbsp;"
+	 	    	},
+		 	    {
+		 	        "pre": "<span class='label label-warning'>",
+	 	        	"field": "type",
+		 	        "post": "</span>&nbsp;"
+	 	    	},
+		 	    {
+		 	        "pre": "<span class='label label-success'>",
+	 	        	"field": "minionType",
+		 	        "post": "</span>&nbsp;"
+	 	    	},
+		 	    {
+		 	        "pre": "<span class='label label-success'>",
+	 	        	"field": "elite",
+		 	        "post": "</span>&nbsp;"
+	 	    	},
+		    ],
+	 	    [
+		 	    {
+		 	        "pre": "<pre class='description'>",
+		        	"field": "description",
+		 	        "post": "</pre>"
+		    	},
+		    ],
+		    [
+		 	    {
+		 	    	"pre": "&nbsp;<span class='attack'>",
+		        	"field": "attack",
+		        	"post": "</span>&nbsp;"
+		    	},
+		 	    {
+		 	    	"pre": "<span class='health'>",
+		        	"field": "health",
+		        	"post": "</span>"
+		    	},
+		    ],
+	 	    [
+		 	    {
+		 	        "pre": "<div class='capabilities' style='display:none'>",
+		        	"field": "capabilities",
+		 	        "post": "</div>"
+		    	},
+		    ],
+	 	    [
+		 	    {
+		 	        "pre": "<a class='pic' href='",
 		        	"field": "image",
-		 	        "post": "'>"
-		    	},
-		 	    {
-		 	        "pre": "<img class='pic' src='",
-		        	"field": "image"
-		    	},
-		 	    {
-		 	        "pre": "' alt='",
-		        	"field": "title",
-		 	        "post": "'></a>"
+		 	        "post": "'>Picture</a>"
 		    	},
 		    ]
 	     ]
@@ -49,8 +108,12 @@ jQuery(document).ready(function($) {
 
 $(document).ajaxComplete(function() {        
 	// initialisation de la gallery des images des cartes
-    $('.piclink').attr('rel', 'gallery');
-    $('.piclink').fancybox();
+    $('a.pic').attr('rel', 'gallery');
+    $('a.pic').fancybox();
+
+    $('.thumbnail').click(function() {
+    	$(this).siblings('a.pic').click();
+    });
     
     $('.capabilities').each(function() {
     	var desc = $(this).siblings('.description').text();

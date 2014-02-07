@@ -56,9 +56,35 @@ strong.title {
 	padding: 0;
 }
 
-.pic {
-	width: 195px;
-	height: 295px;
-	max-width: inherit;
-	margin: -30px -8px -10px -8px;
+.attack,
+.health,
+.mana {
+	display: inline-block;
+	color: white;
+	font-size: 22px;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.mana {
+	width: 30px;
+	height: 23px;
+	padding-top: 7px;
+	background: url("img/mana.png");
+}
+
+.attack {
+	width: 33px;
+	height: 26px;
+	padding-top: 15px;
+	padding-left: 5px;
+	background: url("img/attack.png");
+}
+
+.health {
+	width: 32px;
+	height: 28px;
+	padding-top: 17px;
+	background: url("img/health.png");
 }
