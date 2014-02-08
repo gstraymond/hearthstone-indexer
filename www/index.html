@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <title>Hearthstone card search</title>
-  
   <meta name="description" content="Fast and powerful search for your Hearthstone cards. Helps you to build betters decks !" />
   
   <script type="text/javascript">
-	  var language = navigator.language;
-	  if (navigator.browserLanguage) {
-		  language = navigator.browserLanguage;
-	  }
+    var langs = ['en', 'fr'];
+    var language = navigator.language;
+    if (navigator.browserLanguage) {
+      language = navigator.browserLanguage;
+    }
+    
+    /* handle en-US */
+    if (language.indexOf('-') > -1) {
+      language = language.split('-')[0];
+    }
+    
+    /* lang can be stored in localstorage */
+    if (localStorage['hs_lang']) {
+      language = localStorage['hs_lang'];
+    }
 
-	  if (language.indexOf('fr') != -1) {
-		  document.location.href = 'fr.html';
-	  }
+    /* redirects if language doesn't correspond to current page language */
+    if (language.indexOf('en') === -1) {
+      if (langs.indexOf(language) && language !== 'en') {
+      	document.location.href = language + '.html';
+      } else {
+        document.location.href = '/';
+      }
+    }
   </script>
 
   <!-- jquery -->
@@ -41,15 +56,35 @@
 
   <!-- custom -->
   <script type="text/javascript">
-    //var searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone/card_en/_search?';
-    var searchUrl = 'http://localhost:9200/hearthstone/card_en/_search?';
+    // var __searchUrl = 'http://localhost:9200/hearthstone/card_en/_search?';
+    var __searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone/card_en/_search?';
+    var __castingCost = 'Casting cost';
+    var __clazz = 'Class';
+    var __attack = 'Attack';
+    var __health = 'Health';
+    var __minionType = 'Minion Type';
+    var __set = 'Set';
+    var __rarity = 'Rarity';
+    var __type = 'Type';
+    var __capabilities = 'Capabilities';
   </script>
   <script type="text/javascript" src="custom.js"></script>
   <link rel="stylesheet" href="custom.css" type="text/css" media="screen" />
 </head>
 <body>
-    <div class="facet-view-simple">
-		<h1>Hearthstone search engine</h1>
-    </div>
+  <div class="facet-view-simple">
+    <h1>
+    	Hearthstone search engine
+    	
+    	  <a href="javascript:setLang('en')">
+    		<img width="32" src="img/langs/en.png" alt="en" />
+    	  </a>
+    	
+    	  <a href="javascript:setLang('fr')">
+    		<img width="32" src="img/langs/fr.png" alt="fr" />
+    	  </a>
+    	
+    </h1>
+  </div>
 </body>
 </html>

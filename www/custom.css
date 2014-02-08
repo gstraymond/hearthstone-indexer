@@ -62,3 +62,8 @@ strong.title {
 	max-width: inherit;
 	margin: -30px -8px -10px -8px;
 }
+
+h1 a img {
+	position: relative;
+	top: 7px;
+}

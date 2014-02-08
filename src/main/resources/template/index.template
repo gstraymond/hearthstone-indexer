@@ -2,11 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Recherche de cartes Hearthstone</title>
-  <meta name="description" content="Moteur de recherche rapide et puissant pour vos cartes HearthStone. Aide à construire de meilleurs jeux !" />
+  <title>$head.title</title>
+  <meta name="description" content="$head.description" />
   
   <script type="text/javascript">
-    var langs = ['en', 'fr'];
+    var langs = ['${langs.join("', '")}'];
     var language = navigator.language;
     if (navigator.browserLanguage) {
       language = navigator.browserLanguage;
@@ -23,7 +23,7 @@
     }
 
     /* redirects if language doesn't correspond to current page language */
-    if (language.indexOf('fr') === -1) {
+    if (language.indexOf('$lang') === -1) {
       if (langs.indexOf(language) && language !== 'en') {
       	document.location.href = language + '.html';
       } else {
@@ -56,17 +56,17 @@
 
   <!-- custom -->
   <script type="text/javascript">
-    // var __searchUrl = 'http://localhost:9200/hearthstone/card_fr/_search?';
-    var __searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone/card_fr/_search?';
-    var __castingCost = 'Coût';
-    var __clazz = 'Classe';
-    var __attack = 'Attaque';
-    var __health = 'Vie';
-    var __minionType = 'Type de serviteur';
-    var __set = 'Set';
-    var __rarity = 'Rareté';
-    var __type = 'Type';
-    var __capabilities = 'Capacités';
+    // var __searchUrl = 'http://localhost:9200/hearthstone/card_$lang/_search?';
+    var __searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone/card_$lang/_search?';
+    var __castingCost = '$facets.castingCost';
+    var __clazz = '$facets.clazz';
+    var __attack = '$facets.attack';
+    var __health = '$facets.health';
+    var __minionType = '$facets.minionType';
+    var __set = '$facets.set';
+    var __rarity = '$facets.rarity';
+    var __type = '$facets.type';
+    var __capabilities = '$facets.capabilities';
   </script>
   <script type="text/javascript" src="custom.js"></script>
   <link rel="stylesheet" href="custom.css" type="text/css" media="screen" />
@@ -74,16 +74,12 @@
 <body>
   <div class="facet-view-simple">
     <h1>
-    	Recherche de cartes Hearthstone
-    	
-    	  <a href="javascript:setLang('en')">
-    		<img width="32" src="img/langs/en.png" alt="en" />
+    	$body.title
+    	<% langs.each { l -> %>
+    	  <a href="javascript:setLang('$l')">
+    		<img width="32" src="img/langs/${l}.png" alt="$l" />
     	  </a>
-    	
-    	  <a href="javascript:setLang('fr')">
-    		<img width="32" src="img/langs/fr.png" alt="fr" />
-    	  </a>
-    	
+    	<% } %>
     </h1>
   </div>
 </body>

@@ -1,20 +1,25 @@
+function setLang(lang) {
+	localStorage['hs_lang'] = lang;
+    document.location.href = '/';
+}
+
 // facetview 
 jQuery(document).ready(function($) {
   $('.facet-view-simple').each(function() {
 	  $(this).facetview({
-	    search_url: searchUrl,
+	    search_url: __searchUrl,
 	    search_index: 'hearthstone',
 	    datatype: 'json',
 	    facets: [
-	        {'field': 'castingCost',	'display': 'Casting cost'},
-	        {'field': 'clazz',			'display': 'Class'},
-	        {'field': 'attack',			'display': 'Attack'},
-	        {'field': 'health',			'display': 'Health'},
-	        {'field': 'minionType',		'display': 'Minion Type'},
-	        {'field': 'set',			'display': 'Set'},
-	        {'field': 'rarity',			'display': 'Rarity'},
-	        {'field': 'type',			'display': 'Type'},
-	        {'field': 'capabilities',	'display': 'Capabilities'},
+	        {'field': 'castingCost',	'display': __castingCost},
+	        {'field': 'clazz',			'display': __clazz},
+	        {'field': 'attack',			'display': __attack},
+	        {'field': 'health',			'display': __health},
+	        {'field': 'minionType',		'display': __minionType},
+	        {'field': 'set',			'display': __set},
+	        {'field': 'rarity',			'display': __rarity},
+	        {'field': 'type',			'display': __type},
+	        {'field': 'capabilities',	'display': __capabilities},
 	    ],
 	    paging: { size: 12 },
 	    default_operator: "AND",

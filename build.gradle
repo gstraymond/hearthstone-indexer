@@ -24,3 +24,9 @@ task importer (dependsOn: 'classes', type: JavaExec) {
 	main = 'fr.gstraymond.script.Importer'
 	classpath = sourceSets.main.runtimeClasspath
 }
+
+task template (dependsOn: 'classes', type: JavaExec) {
+	description = 'HEARTHSTONE TEMPLATE GENERATOR'
+	main = 'fr.gstraymond.script.TemplateGenerator'
+	classpath = sourceSets.main.runtimeClasspath
+}
