@@ -21,13 +21,18 @@
     if (localStorage['hs_lang']) {
       language = localStorage['hs_lang'];
     }
+    
+    /* default lang */
+    if (langs.indexOf(language) === -1) {
+      language = 'en';
+    }
 
     /* redirects if language doesn't correspond to current page language */
     if (language.indexOf('en') === -1) {
-      if (langs.indexOf(language) && language !== 'en') {
-      	document.location.href = language + '.html';
-      } else {
+      if (language === 'en') {
         document.location.href = '/';
+      } else {
+      	document.location.href = language + '.html';
       }
     }
   </script>
