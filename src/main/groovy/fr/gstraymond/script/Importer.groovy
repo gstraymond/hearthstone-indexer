@@ -11,13 +11,6 @@ def index = true
 def host = 'localhost'
 def languages = ['en', 'fr']
 
-
-if (index) {
-	def indexer = new ESIndexer(host: host)
-	indexer.clear()
-	indexer.configure()
-}
-
 languages.each { lang ->
 	def file = new File("src/main/resources/scrap/scrapedCards.${lang}.json")
 	def fullScrapedCards = new JsonSlurper().parse(file)
@@ -43,6 +36,8 @@ $card.clazz
 
 	if (index) {
 		def indexer = new ESIndexer(host: host, lang: lang)
+		indexer.clear()
+		indexer.configure()
 		
 		GParsPool.withPool(4) {
 			cards.eachWithIndexParallel { card, i ->

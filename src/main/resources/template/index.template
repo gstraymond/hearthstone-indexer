@@ -61,8 +61,8 @@
 
   <!-- custom -->
   <script type="text/javascript">
-    // var __searchUrl = 'http://localhost:9200/hearthstone/card_$lang/_search?';
-    var __searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone/card_$lang/_search?';
+    //var __searchUrl = 'http://localhost:9200/hearthstone_$lang/card/_search?';
+    var __searchUrl = 'http://engine.magic-card-search.com:8080/hearthstone_$lang/card/_search?';
     var __castingCost = '$facets.castingCost';
     var __clazz = '$facets.clazz';
     var __attack = '$facets.attack';
