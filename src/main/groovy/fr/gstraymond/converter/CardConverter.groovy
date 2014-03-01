@@ -24,9 +24,11 @@ class CardConverter {
 		setHealth()
 		setMinionType()
 		setClazz()
+		setClassCode()
 		setImage()
 		setSet()
 		setRarity()
+		setRarityCode()
 		setType()
 		setElite()
 		setCapabilities()
@@ -81,7 +83,11 @@ class CardConverter {
 	
 	def getClazz(scrapedCard) {
 		if (! scrapedCard.classs) {
-			return Classes.DEFAULT
+			def defaultClass = Classes.DEFAULT_MAP[lang]
+			if (! defaultClass) {
+				throw new RuntimeException("$scrapedCard.name : no default class for lang $lang")
+			}
+			return defaultClass
 		}
 		
 		if (! Classes.MAP[lang]) {
@@ -94,6 +100,18 @@ class CardConverter {
 		}
 		
 		clazz
+	}
+	
+	void setClassCode() {
+		if (! scrapedCard.classs) {
+			card.classCode = 'all'
+		} else {
+			def classCode = Classes.CODE_MAP[scrapedCard.classs]
+			if (! classCode) {
+				throw new RuntimeException("$scrapedCard.name : no class code for type $scrapedCard.classs")
+			}
+			card.classCode = classCode
+		}
 	}
 	
 	void setImage () {
@@ -137,6 +155,14 @@ class CardConverter {
 		}
 		
 		rarity
+	}
+	
+	void setRarityCode() {
+		def rarityCode = Rarities.CODE_MAP[scrapedCard.quality]
+		if (! rarityCode) {
+			throw new RuntimeException("$scrapedCard.name : no rarity code for type $scrapedCard.quality")
+		}
+		card.rarityCode = rarityCode
 	}
 	
 	void setType() {

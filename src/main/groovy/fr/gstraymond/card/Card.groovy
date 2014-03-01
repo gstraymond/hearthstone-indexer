@@ -9,9 +9,11 @@ class Card {
 	Integer health
 	String minionType
 	String clazz
+	String classCode
 	String image
 	String set
 	String rarity
+	String rarityCode
 	String type
 	String elite
 	List<String> capabilities

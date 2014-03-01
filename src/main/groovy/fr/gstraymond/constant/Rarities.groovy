@@ -18,4 +18,12 @@ class Rarities {
 			5 : 'Légendaire',
 		]
 	]
+	
+	static CODE_MAP = [
+		0 : 'free',
+		1 : 'common',
+		3 : 'rare',
+		4 : 'epic',
+		5 : 'legendary',
+	]
 }

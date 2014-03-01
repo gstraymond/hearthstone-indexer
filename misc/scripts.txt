@@ -6,14 +6,12 @@ sudo nginx -c /home/guillaume/git/magicimporter/misc/local.nginx.conf
  - ssh -i /home/guillaume/Documents/magic/aws/gstraymond.pem ubuntu@ec2-50-112-229-218.us-west-2.compute.amazonaws.com
  - faire un dump en local
   - rm /home/guillaume/hearthstone*.tar.gz
-  - curl -XPOST localhost:9200/hearthstone_en/_export
-  - curl -XPOST localhost:9200/hearthstone_fr/_export
+  - curl -XPOST localhost:9200/hearthstone_en/_export && curl -XPOST localhost:9200/hearthstone_fr/_export
  - le copier dans filetea.me
  - aria2c https://filetea.me/....
  - le mettre au bon endroit : ~/hearthstone_en.tar.gz
  - le mettre au bon endroit : ~/hearthstone_fr.tar.gz
  - Supprimer l'index sur le serveur  et importer le dump
-  - curl -XDELETE localhost:9200/hearthstone_en && curl -XPOST http://localhost:9200/hearthstone_en/_import
-  - curl -XDELETE localhost:9200/hearthstone_fr && curl -XPOST http://localhost:9200/hearthstone_fr/_import
+  - curl -XDELETE localhost:9200/hearthstone_en && curl -XPOST http://localhost:9200/hearthstone_en/_import && curl -XDELETE localhost:9200/hearthstone_fr && curl -XPOST http://localhost:9200/hearthstone_fr/_import
  - fermer la session
  - fermer le port 22
