@@ -7,6 +7,7 @@ class Card {
 	String castingCost
 	String attack
 	Integer health
+	Integer Durability
 	String minionType
 	String clazz
 	String classCode

@@ -22,6 +22,7 @@ class CardConverter {
 		setCastingCost()
 		setAttack()
 		setHealth()
+		setDurability()
 		setMinionType()
 		setClazz()
 		setClassCode()
@@ -54,6 +55,10 @@ class CardConverter {
 	
 	void setHealth() {
 		card.health = scrapedCard.health
+	}
+	
+	void setDurability() {
+		card.durability = scrapedCard.durability
 	}
 	
 	void setMinionType() {
