@@ -42,7 +42,9 @@ class CardConverter {
 	}
 	
 	void setDescription() {
-		card.description = scrapedCard.description
+		def desc = scrapedCard.description?.replace('1 |4(point,points)', '1 point')
+		desc = desc?.replace(' |4(point,points)', ' points')
+		card.description = desc
 	}
 	
 	void setCastingCost() {
