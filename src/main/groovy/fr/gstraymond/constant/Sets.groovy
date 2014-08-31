@@ -8,7 +8,9 @@ class Sets {
 			3  : 'Expert',
 			4  : 'Reward',
 			5  : 'Missions',
-			11 : 'Promotion',
+            11 : 'Promotion',
+            12 : 'Naxxramas',
+            16 : 'Credits',
 		],
 		fr : [
 			2  : 'Basique',
@@ -16,6 +18,8 @@ class Sets {
 			4  : 'Récompense',
 			5  : 'Missions',
 			11 : 'Promotion',
+            12 : 'Naxxramas',
+            16 : 'Générique',
 		]
 	]
 }
