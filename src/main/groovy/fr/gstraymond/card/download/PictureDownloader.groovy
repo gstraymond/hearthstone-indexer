@@ -14,12 +14,12 @@ class PictureDownloader {
 
 		new Downloader(
 			url: card.image,
-			fileFolderName: "$lang/$card.set",
+			fileFolderName: "$lang/${card.set.replaceAll(" ", "-")}",
 			title: cardTitle
 		).download()
 
 		// mis à jour du chemin
-		card.image = "$Downloader.pictureHost/$lang/$card.set/$cardTitle"
+		card.image = "$Downloader.pictureHost/$lang/${card.set.replaceAll(" ", "-")}/$cardTitle"
 	}
 
 	def formatTitle(Card card) {

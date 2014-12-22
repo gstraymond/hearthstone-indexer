@@ -10,6 +10,7 @@ class Sets {
 			5  : 'Missions',
             11 : 'Promotion',
             12 : 'Naxxramas',
+            13 : 'Goblins vs Gnomes',
             16 : 'Credits',
 		],
 		fr : [
@@ -19,6 +20,7 @@ class Sets {
 			5  : 'Missions',
 			11 : 'Promotion',
             12 : 'Naxxramas',
+            13 : 'Gobelins et Gnomes',
             16 : 'Générique',
 		]
 	]
