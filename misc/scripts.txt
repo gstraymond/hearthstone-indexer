@@ -4,14 +4,15 @@ sudo nginx -c /home/guillaume/git/magicimporter/misc/local.nginx.conf
 # Livraison du dump ES
  - ouvrir le port 22 sur ec2
  - ssh -i /home/guillaume/Documents/magic/aws/gstraymond.pem ubuntu@ec2-50-112-229-218.us-west-2.compute.amazonaws.com
+ - ssh -i ~/Documents/magic/aws/guillaume.saint.raymond.pem ubuntu@54.186.94.47
  - faire un dump en local
   - rm /home/guillaume/hearthstone*.tar.gz
   - curl -XPOST localhost:9200/hearthstone_en/_export && curl -XPOST localhost:9200/hearthstone_fr/_export
  - le copier dans filetea.me
  - aria2c https://filetea.me/....
- - le mettre au bon endroit : ~/hearthstone_en.tar.gz
- - le mettre au bon endroit : ~/hearthstone_fr.tar.gz
+ - le mettre au bon endroit : /tmp/elasticsearch/hearthstone_en.tar.gz
+ - le mettre au bon endroit : /tmp/elasticsearch/hearthstone_fr.tar.gz
  - Supprimer l'index sur le serveur  et importer le dump
-  - curl -XDELETE localhost:9200/hearthstone_en && curl -XPOST http://localhost:9200/hearthstone_en/_import && curl -XDELETE localhost:9200/hearthstone_fr && curl -XPOST http://localhost:9200/hearthstone_fr/_import
+  - curl -XDELETE localhost:9200/hearthstone_en && curl -XPOST http://localhost:9200/hearthstone_en/_import\?path\=/tmp/elasticsearch/hearthstone_en.tar.gz && curl -XDELETE localhost:9200/hearthstone_fr && curl -XPOST http://localhost:9200/hearthstone_fr/_import?path\=/tmp/elasticsearch/hearthstone_fr.tar.gz 
  - fermer la session
  - fermer le port 22

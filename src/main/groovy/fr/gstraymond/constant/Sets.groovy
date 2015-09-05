@@ -10,8 +10,11 @@ class Sets {
 			5  : 'Missions',
             11 : 'Promotion',
             12 : 'Naxxramas',
-            13 : 'Goblins vs Gnomes',
-            16 : 'Credits',
+			13 : 'Goblins vs Gnomes',
+			14 : 'Blackrock Mountain',
+			15 : 'The Grand Tournament',
+			16 : 'Credits',
+			18 : 'Misc',
 		],
 		fr : [
 			2  : 'Basique',
@@ -20,8 +23,11 @@ class Sets {
 			5  : 'Missions',
 			11 : 'Promotion',
             12 : 'Naxxramas',
-            13 : 'Gobelins et Gnomes',
+			13 : 'Gobelins et Gnomes',
+			14 : 'Mont Rochenoire',
+			15 : 'Le Grand Tournoi',
             16 : 'Générique',
+			18 : 'Autre',
 		]
 	]
 }
